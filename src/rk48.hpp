@@ -19,8 +19,8 @@ public:
 
 private:
 
-  real   m_dx;
-  size_t m_nx;
+  real        m_dx;
+  std::size_t m_nx;
 
 };
 

@@ -19,7 +19,7 @@ void EMac24::grad( const scalar_field& f, scalar_field& dfdx )
     forward_diff( f, dfdx );
     break;
   default:
-    std::exit(1); // this is an error, handle better
+    //std::exit(1); // this is an error, handle better
     break;
   }
 }
@@ -55,7 +55,7 @@ void EMac24::forward_diff( const scalar_field& f, scalar_field& df )
   static real b_R     =  real(3) / ( 12*m_dx );
 
   // left periodic boundary
-  size_t i = 0;
+  std::size_t i = 0;
   df[i] = b_L*f[m_nx-2] + a_L*f[m_nx-1] + Upsilon*f[i] + a_R*f[i+1] + b_R*f[i+2];
 
   i = 1;
@@ -81,7 +81,7 @@ void EMac24::backward_diff( const scalar_field& f, scalar_field& df )
   static real b_R     = -real(5) / ( 12*m_dx );
 
   // left periodic boundary
-  size_t i = 0;
+  std::size_t i = 0;
   df[i] = b_L*f[m_nx-2] + a_L*f[m_nx-1] + Upsilon*f[i] + a_R*f[i+1] + b_R*f[i+2];
 
   i = 1;

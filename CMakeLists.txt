@@ -1,8 +1,5 @@
-project( SOLVERS CXX )
-cmake_minimum_required( VERSION 2.8 )
-
-find_package( gtest )
-include_directories( ${GTEST_INCLUDE_DIR} )
+project( SOLVERS C CXX )
+cmake_minimum_required( VERSION 2.8.8 )
 
 add_library( solverslib 
 	src/defs.hpp
@@ -22,6 +19,10 @@ target_link_libraries( solvers solverslib )
 # TESTING
 
 enable_testing()
+find_package( GTest REQUIRED )
+include_directories( ${GTEST_INCLUDE_DIRS} )
+
 add_executable( deriv-mac22 src/test/deriv-mac22.cpp )
-target_link_libraries( deriv-mac22 solverslib ${GTEST_LIBRARY} )
+target_link_libraries( deriv-mac22 solverslib ${GTEST_LIBRARIES} )
+
 add_test( DERIV-F1 deriv-mac22 )

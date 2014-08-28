@@ -17,19 +17,19 @@ public:
   }
 
   // accessors
-  const real   xmin() const { return m_xmin; }
-  const real   xmax() const { return m_xmax; }
-  const real   dx()   const { return m_dx;   }
-  const size_t nx()   const { return m_nx;   }
+  const real        xmin() const { return m_xmin; }
+  const real        xmax() const { return m_xmax; }
+  const real        dx()   const { return m_dx;   }
+  const std::size_t nx()   const { return m_nx;   }
 
   const real x( std::size_t i ) const { return m_xmin + i*m_dx; }
 
 private:
 
-  real   m_xmin;
-  real   m_xmax;
-  real   m_dx;
-  size_t m_nx;
+  real        m_xmin;
+  real        m_xmax;
+  real        m_dx;
+  std::size_t m_nx;
 
 };
 

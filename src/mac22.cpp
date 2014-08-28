@@ -19,7 +19,7 @@ void Mac22::grad( const scalar_field& f, scalar_field& dfdx )
     forward_diff( f, dfdx );
     break;
   default:
-    std::exit(1); // this is an error, handle better
+    //std::exit(1); // this is an error, handle better
     break;
   }
 }
@@ -53,7 +53,7 @@ void Mac22::forward_diff( const scalar_field& f, scalar_field& df )
   static real a_R     =  1 / m_dx;
 
   // right periodic boundary
-  size_t i = m_nx-1; 
+  std::size_t i = m_nx-1; 
   df[i] = Upsilon*f[i] + a_R*f[0];
 
   for (i=0; i<m_nx-1; i++)
@@ -67,7 +67,7 @@ void Mac22::backward_diff( const scalar_field& f, scalar_field& df )
   static real Upsilon =  1 / m_dx;
   
   // left periodic boundary
-  size_t i = 0; 
+  std::size_t i = 0; 
   df[i] = Upsilon*f[i] + a_L*f[m_nx-1];
 
   for (i=1; i<m_nx; i++)

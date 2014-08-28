@@ -58,7 +58,7 @@ void RK48::grad( const scalar_field& f, scalar_field& dfdx )
 void RK48::solve( real& t, scalar_field& f, real dt )
 {
 
-  size_t NX = m_nx;
+  std::size_t NX = m_nx;
 
   static scalar_field k1( NX, real(0) );
   static scalar_field k2( NX, real(0) );
